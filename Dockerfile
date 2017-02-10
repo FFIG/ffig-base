@@ -3,7 +3,7 @@
 # code or derived applications.
 
 FROM ubuntu:16.04
-MAINTAINER Jonathan B Coe <jbcoe@me.com>
+MAINTAINER FFIG <docker@ffig.org>
 
 RUN apt-get -y update && \
     apt-get install -y \
