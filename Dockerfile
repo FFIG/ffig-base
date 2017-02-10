@@ -48,5 +48,5 @@ RUN useradd c-api-user && \
     mkdir -p /home/ffig && \
     chown c-api-user /home/ffig
 
-ENV HOME /home/ffig
-ENV LD_LIBRARY_PATH /usr/lib/llvm-3.8/lib:$LD_LIBRARY_PATH
+ENV HOME=/home/ffig \
+    LD_LIBRARY_PATH=/usr/lib/llvm-3.8/lib:$LD_LIBRARY_PATH
