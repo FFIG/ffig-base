@@ -3,7 +3,7 @@
 # code or derived applications.
 
 FROM ubuntu:16.04
-MAINTAINER FFIG <docker@ffig.org>
+MAINTAINER FFIG <support@ffig.org>
 
 RUN apt-get -y update && \
     apt-get install -y \
