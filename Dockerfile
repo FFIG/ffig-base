@@ -5,18 +5,48 @@
 FROM ubuntu:16.04
 MAINTAINER Jonathan B Coe <jbcoe@me.com>
 
-RUN apt-get -y update && apt-get install -y python-software-properties software-properties-common
-RUN add-apt-repository -y ppa:ubuntu-toolchain-r/test
-RUN apt-get -y update && apt-get install -y python-pip git cmake ninja-build ruby pypy python3 python3-pip clang libclang-3.8-dev libc++1 libc++-dev ruby-dev golang
+RUN apt-get -y update && \
+    apt-get install -y \
+        python-software-properties \
+        software-properties-common
 
-RUN pip install --upgrade pip && pip install nose jinja2 
-RUN pip3 install --upgrade pip && pip install nose jinja2
+# Software dependencies - sorted alphabetically
+RUN add-apt-repository -y ppa:ubuntu-toolchain-r/test && \
+    apt-get -y update && \
+    apt-get install -y \
+        clang \
+        cmake \
+        git \
+        golang \
+        libc++-dev \
+        libc++1 \
+        libclang-3.8-dev \
+        ninja-build \
+        pypy \
+        python-pip \
+        python3 \
+        python3-pip \
+        ruby \
+        ruby-dev
+
+# Python dependencies
+RUN pip install --upgrade pip && \
+    pip install jinja2 nose && \
+    pip3 install --upgrade pip && \
+    pip3 install jinja2 nose
+
+# Ruby dependencies
 RUN gem install ffi
 
-RUN apt-get autoremove -y
-RUN apt-get clean
-RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+# Cleanup
+RUN apt-get autoremove -y && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-RUN useradd c-api-user && mkdir -p /home/ffig && chown c-api-user /home/ffig
-ENV HOME /home/ffig
-ENV LD_LIBRARY_PATH /usr/lib/llvm-3.8/lib:$LD_LIBRARY_PATH
+# User and environment setup
+RUN useradd c-api-user && \
+    mkdir -p /home/ffig && \
+    chown c-api-user /home/ffig
+
+ENV HOME=/home/ffig \
+    LD_LIBRARY_PATH=/usr/lib/llvm-3.8/lib:$LD_LIBRARY_PATH
