@@ -16,6 +16,7 @@ RUN add-apt-repository -y ppa:ubuntu-toolchain-r/test && \
     apt-get install -y \
         clang \
         cmake \
+        curl \
         git \
         golang \
         libc++-dev \
