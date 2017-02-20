@@ -45,9 +45,9 @@ RUN apt-get autoremove -y && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # User and environment setup
-RUN useradd c-api-user && \
+RUN useradd ffig && \
     mkdir -p /home/ffig && \
-    chown c-api-user /home/ffig
+    chown ffig /home/ffig
 
 ENV HOME=/home/ffig \
     LD_LIBRARY_PATH=/usr/lib/llvm-3.8/lib:$LD_LIBRARY_PATH
