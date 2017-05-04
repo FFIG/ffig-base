@@ -31,8 +31,8 @@ RUN add-apt-repository -y ppa:ubuntu-toolchain-r/test && \
         ruby-dev
 
 # Python dependencies
-RUN pip install --upgrade pip && \
-    pip install jinja2 nose && \
+RUN pip2 install --upgrade pip && \
+    pip2 install jinja2 nose backports.typing && \
     pip3 install --upgrade pip && \
     pip3 install jinja2 nose
 
