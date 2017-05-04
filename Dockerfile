@@ -34,7 +34,7 @@ RUN add-apt-repository -y ppa:ubuntu-toolchain-r/test && \
 RUN pip install --upgrade pip && \
     pip install jinja2 nose && \
     pip3 install --upgrade pip && \
-    pip3 install jinja2 nose
+    pip3 install jinja2 nose typing
 
 # Ruby dependencies
 RUN gem install ffi
