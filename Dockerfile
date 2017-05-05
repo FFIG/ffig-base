@@ -17,6 +17,7 @@ RUN add-apt-repository -y ppa:ubuntu-toolchain-r/test && \
         clang \
         cmake \
         curl \
+        dos2unix \
         git \
         golang \
         libc++-dev \
