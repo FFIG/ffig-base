@@ -36,7 +36,7 @@ RUN add-apt-repository -y ppa:ubuntu-toolchain-r/test && \
 RUN pip2 install --upgrade pip && \
     pip2 install jinja2 nose backports.typing && \
     pip3 install --upgrade pip && \
-    pip3 install jinja2 nose
+    pip3 install virtualenv jinja2 nose
 
 # Ruby dependencies
 RUN gem install ffi
