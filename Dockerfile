@@ -34,7 +34,7 @@ RUN add-apt-repository -y ppa:ubuntu-toolchain-r/test && \
 
 # Python dependencies
 RUN pip2 install --upgrade pip && \
-    pip2 install jinja2 nose backports.typing && \
+    pip2 install backports.typing jinja2 nose virtualenv && \
     pip3 install --upgrade pip && \
     pip3 install jinja2 nose virtualenv 
 
