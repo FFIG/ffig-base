@@ -24,6 +24,7 @@ RUN add-apt-repository -y ppa:ubuntu-toolchain-r/test && \
         libc++1 \
         libclang-3.8-dev \
         luajit \
+        mono-devel \
         ninja-build \
         pypy \
         python-pip \
