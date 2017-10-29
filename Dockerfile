@@ -23,6 +23,7 @@ RUN add-apt-repository -y ppa:ubuntu-toolchain-r/test && \
         libc++-dev \
         libc++1 \
         libclang-3.8-dev \
+        libunwind8 \
         luajit \
         mono-devel \
         ninja-build \
@@ -32,6 +33,27 @@ RUN add-apt-repository -y ppa:ubuntu-toolchain-r/test && \
         python3-pip \
         ruby \
         ruby-dev
+
+
+# Install .NET Core
+ENV DOTNET_SDK_VERSION 2.0.2
+ENV DOTNET_DOWNLOAD_URL https://dotnetcli.blob.core.windows.net/dotnet/Sdk/$DOTNET_SDK_VERSION/dotnet-sdk-$DOTNET_SDK_VERSION-linux-x64.tar.gz
+
+RUN curl -SL $DOTNET_DOWNLOAD_URL --output dotnet.tar.gz \
+    && mkdir -p /usr/share/dotnet \
+    && tar -zxf dotnet.tar.gz -C /usr/share/dotnet \
+    && rm dotnet.tar.gz \
+    && ln -s /usr/share/dotnet/dotnet /usr/bin/dotnet
+
+# Trigger the population of the local package cache
+ENV NUGET_XMLDOC_MODE skip
+RUN mkdir warmup \
+    && cd warmup \
+    && dotnet new \
+    && cd .. \
+    && rm -rf warmup \
+    && rm -rf /tmp/NuGetScratch
+
 
 # Python dependencies
 RUN pip2 install --upgrade pip && \
