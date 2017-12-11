@@ -57,7 +57,7 @@ RUN mkdir warmup \
 
 # Python dependencies
 RUN pip2 install --upgrade pip && \
-    pip2 install backports.typing jinja2 nose pycodestyle virtualenv && \
+    pip2 install jinja2 nose pycodestyle virtualenv && \
     pip3 install --upgrade pip && \
     pip3 install jinja2 nose pycodestyle virtualenv 
 
