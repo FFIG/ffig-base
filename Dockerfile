@@ -57,9 +57,9 @@ RUN mkdir warmup \
 
 # Python dependencies
 RUN pip2 install --upgrade pip && \
-    pip2 install backports.typing jinja2 nose virtualenv && \
+    pip2 install backports.typing jinja2 nose pycodestyle virtualenv && \
     pip3 install --upgrade pip && \
-    pip3 install jinja2 nose virtualenv 
+    pip3 install jinja2 nose pycodestyle virtualenv 
 
 # Ruby dependencies
 RUN gem install ffi
