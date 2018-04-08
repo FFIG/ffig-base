@@ -2,7 +2,7 @@
 # includes the dependencies required to build and use FFIG, but not the FFIG
 # code or derived applications.
 
-FROM ubuntu:16.04
+FROM ubuntu:17.10
 MAINTAINER FFIG <support@ffig.org>
 
 RUN apt-get -y update && \
@@ -22,7 +22,7 @@ RUN add-apt-repository -y ppa:ubuntu-toolchain-r/test && \
         golang \
         libc++-dev \
         libc++1 \
-        libclang-3.8-dev \
+        libclang-5.0-dev \
         libunwind8 \
         luajit \
         mono-devel \
@@ -75,4 +75,4 @@ RUN useradd ffig && \
     chown ffig /home/ffig
 
 ENV HOME=/home/ffig \
-    LD_LIBRARY_PATH=/usr/lib/llvm-3.8/lib:$LD_LIBRARY_PATH
+    LD_LIBRARY_PATH=/usr/lib/llvm-5.0/lib:$LD_LIBRARY_PATH
