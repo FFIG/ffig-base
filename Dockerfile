@@ -2,7 +2,7 @@
 # includes the dependencies required to build and use FFIG, but not the FFIG
 # code or derived applications.
 
-FROM ubuntu:17.10
+FROM ubuntu:16.04
 MAINTAINER FFIG <support@ffig.org>
 
 RUN apt-get -y update && \
