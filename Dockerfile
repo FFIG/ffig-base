@@ -56,7 +56,7 @@ RUN mkdir warmup \
 
 
 # Python dependencies
-RUN pip2 install --upgrade pip && \
+RUN pip2 install --upgrade pip==9.0.3 && \
     pip2 install jinja2 nose pycodestyle virtualenv && \
     pip3 install --upgrade pip && \
     pip3 install jinja2 nose pycodestyle virtualenv 
