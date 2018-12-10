@@ -73,7 +73,7 @@ RUN apt-get autoremove -y && \
 ENV RUSTUP_HOME=/usr/local/rustup \
     CARGO_HOME=/usr/local/cargo \
     PATH=/usr/local/cargo/bin:$PATH \
-    RUST_VERSION=1.30.1
+    RUST_VERSION=1.31.0
     
 RUN set -eux; \
     dpkgArch="$(dpkg --print-architecture)"; \
