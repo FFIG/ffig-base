@@ -11,11 +11,11 @@ RUN apt-get -y update && \
         software-properties-common
 
 # Software dependencies - sorted alphabetically
+# Note: Python's pip is used to install CMake following https://blog.kitware.com/cmake-python-wheels/
 RUN add-apt-repository -y ppa:ubuntu-toolchain-r/test && \
     apt-get -y update && \
     apt-get install -y \
         clang \
-        cmake \
         curl \
         dos2unix \
         git \
@@ -56,9 +56,9 @@ RUN mkdir warmup \
 
 
 # Python dependencies
-RUN pip2 install --upgrade pip==9.0.3 && \
+RUN pip2 install --upgrade pip==9.0.3 cmake && \
     pip2 install jinja2 nose pycodestyle virtualenv && \
-    pip3 install --upgrade pip==9.0.3 && \
+    pip3 install --upgrade pip==9.0.3 cmake && \
     pip3 install jinja2 nose pycodestyle virtualenv 
 
 # Ruby dependencies
